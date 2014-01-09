@@ -11,5 +11,5 @@ zabbix
 		修改自己的url，及user,password,详见example.py
 		
 ###参考：
-1.[zabbix 官方api](https://www.zabbix.com/documentation/2.0/manual/appendix/api/api)
-2.["王伟" 博客](http://wangwei007.blog.51cto.com/68019/1249770)
+#1.[zabbix 官方api](https://www.zabbix.com/documentation/2.0/manual/appendix/api/api)</br>
+#2.["王伟" 博客](http://wangwei007.blog.51cto.com/68019/1249770)
