@@ -1,11 +1,11 @@
 zabbix
 ======
 
-###简介：
-		根据日常工作中常用到zabbix的功能，整理以下功能
-		1.基于[zabbix api](https://www.zabbix.com/documentation/2.0/manual/appendix/api/api)<br />  
-		2.提供查询单个或者多个host、hostgroup、template功能
-		3.提供增加host,hostgroup功能
-		4.提供disable host功能
-###使用说明：
-		修改自己的url，及user,password,详见example.py
+###锟斤拷锟介：
+		锟斤拷锟斤拷锟秸筹拷锟斤拷锟斤拷锟叫筹拷锟矫碉拷zabbix锟侥癸拷锟杰ｏ拷锟斤拷锟斤拷锟斤拷锟铰癸拷锟斤拷
+		1.锟斤拷锟斤拷[zabbix api](https://www.zabbix.com/documentation/2.0/manual/appendix/api/api)<br />
+		2.锟结供锟斤拷询锟斤拷锟斤拷锟斤拷锟竭讹拷锟斤拷host锟斤拷hostgroup锟斤拷template锟斤拷锟斤拷
+		3.锟结供锟斤拷锟斤拷host,hostgroup锟斤拷锟斤拷
+		4.锟结供disable host锟斤拷锟斤拷
+###使锟斤拷说锟斤拷锟斤拷
+		锟睫革拷锟皆硷拷锟斤拷url锟斤拷锟斤拷user,password,锟斤拷锟斤拷example.py
