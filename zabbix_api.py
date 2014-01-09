@@ -256,17 +256,4 @@ class zabbix_api:
 	             
 if __name__ == "__main__": 
 	pass
-	#example
-	#zabbix=zabbix_api()
-	#print zabbix.host_get()
-	#print zabbix.host_get('192.168.2.21')
-	#print zabbix.hostgroup_get('test02')
-	#print zabbix.template_get()
-	#print zabbix.template_get('Template OS Linux')
-	#print zabbix.hostgroup_get('Linux servers')
-	#a=zabbix.hostgroup_create('test02')
-	#print a
-	
-	#zabbix.host_create('192.168.2.20', 'Linux servers,test01 ', 'Template OS Linux,Template App MySQL')
-	#zabbix.host_create('192.168.2.18', 'test02', 'Template OS Linux')
-	#print zabbix.host_disable('192.168.2.18')
+
