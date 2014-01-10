@@ -7,6 +7,7 @@ zabbix
 		2.提供查询单个或者多个host、hostgroup、template功能
 		3.提供增加host,hostgroup功能
 		4.提供disable host功能
+		5.添加删除host功能
 ###使用说明：
 		修改自己的url，及user,password,详见example.py
 		
