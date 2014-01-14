@@ -4,11 +4,11 @@
 import json 
 import urllib2 
 from urllib2 import URLError 
-import sys 
+import sys,argparse
  
 class zabbix_api: 
 	def __init__(self): 
-	    self.url = 'http://localhost/api_jsonrpc.php' #修改为URL
+	    self.url = 'http://localhost/api_jsonrpc.php' #修改URL
 	    self.header = {"Content-Type":"application/json"}         
 	     
 	     
@@ -67,7 +67,7 @@ class zabbix_api:
 	        response = json.loads(result.read()) 
 	        #print response
 	        result.close() 
-	        print ": \033[31m%s\033[0m"%(len(response['result']))
+	        print "主机数量: \033[31m%s\033[0m"%(len(response['result']))
 	        for host in response['result']:      
 	            	status={"0":"OK","1":"Disabled"}
 			available={"0":"Unknown","1":"available","2":"Unavailable"}
@@ -282,6 +282,43 @@ class zabbix_api:
 	        result.close() 
        		print "主机 \033[041m %s\033[0m  已经删除 !"%hostid 
        		
-if __name__ == "__main__": 
-	pass
 
+if __name__ == "__main__":
+	zabbix=zabbix_api()
+	parser=argparse.ArgumentParser(description='zabbix  api ',usage='%(prog)s [options]')
+	parser.add_argument('-H','--host',nargs='?',dest='listhost',default='host',help='查询主机')
+	parser.add_argument('-G','--group',nargs='?',dest='listgroup',default='group',help='查询主机组')
+	parser.add_argument('-T','--template',nargs='?',dest='listtemp',default='template',help='查询模板信息')
+	parser.add_argument('-A','--add-group',nargs=1,dest='addgroup',help='添加主机组')
+	parser.add_argument('-C','--add-host',dest='addhost',nargs=3,metavar=('192.168.2.1', 'test01,test02', 'Template01,Template02'),help='添加主机,多个主机组或模板使用分号')
+	parser.add_argument('-d','--disable',dest='disablehost',nargs=1,metavar=('192.168.2.1'),help='禁用主机')
+	parser.add_argument('-D','--delete',dest='deletehost',nargs='+',metavar=('192.168.2.1'),help='删除主机,多个主机之间用分号')
+	parser.add_argument('-v','--version', action='version', version='%(prog)s 1.0')
+	if len(sys.argv)==1:
+		print parser.print_help()
+	else:
+		args=parser.parse_args()
+		
+		if args.listhost != 'host' :
+			if args.listhost:
+				zabbix.host_get(args.listhost)
+			else:
+				zabbix.host_get()
+		if args.listgroup !='group':
+			if args.listgroup:
+				zabbix.hostgroup_get(args.listgroup)
+			else:
+				zabbix.hostgroup_get()
+		if args.listtemp != 'template':
+			if args.listtemp:
+				zabbix.template_get(args.listtemp)
+			else:
+				zabbix.template_get()
+		if args.addgroup:
+			zabbix.hostgroup_create(args.addgroup[0])
+		if args.addhost:
+			zabbix.host_create(args.addhost[0], args.addhost[1], args.addhost[2])
+		if args.disablehost:
+			zabbix.host_disable(args.disablehost)
+		if args.deletehost:
+			zabbix.host_delete(args.deletehost[0])
