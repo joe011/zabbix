@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#新增帮助信息，可直接执行脚本
 zabbix=zabbix_api()
 #获取所有主机列表
  zabbix.host_get()
